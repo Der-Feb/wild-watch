@@ -5,26 +5,44 @@ public class PlayerCamera : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
 
-    [Header("Camera Offsets")]
-    public float zOffset = 0f;
-    public float yOffset = 0f;
+    [Header("Normal (Third-Person) Offsets")]
+    public float zOffset = 1.5f;
+    public float yOffset = 1.5f;
+
+    [Header("Focused (First-Person) Offsets")]
+    public float focusedZOffset = 0f;
+    public float focusedYOffset = 0.3f;
+    public float focusTransitionSpeed = 8f;
+
+    [Header("Field of View")]
+    public Camera cam;
+    public float normalFOV = 60f;
+    public float focusedFOV = 40f;
 
     [Header("Collision Avoidance")]
-    public LayerMask obstacleMask;       // set this to "world" in the Inspector
-    public float collisionRadius = 0.3f; // thickness of the sphere cast
-    public float collisionBuffer = 0.2f; // small gap to keep camera from touching the wall
+    public LayerMask obstacleMask;
+    public float collisionRadius = 0.3f;
+    public float collisionBuffer = 0.2f;
+
+    [HideInInspector] public bool isFocusing = false;
 
     float xRotation = 0f;
     Vector3 baseLocalPosition;
+    float currentZOffset;
+    float currentYOffset;
 
     void Start()
     {
-        // Lock the cursor to the middle of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Remember wherever you manually placed the camera in the editor as the base
         baseLocalPosition = transform.localPosition;
+
+        // Start at the normal third-person offset
+        currentZOffset = zOffset;
+        currentYOffset = yOffset;
+
+        if (cam == null) cam = GetComponent<Camera>();
     }
 
     void Update()
@@ -32,35 +50,42 @@ public class PlayerCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Control rotation around x axis (Look up and down)
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 75f);
-
-        // Apply vertical rotation to the camera itself
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Rotate the player body horizontally around the y axis
         if (playerBody != null)
         {
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
+        HandleFocusTransition();
         HandleCameraCollision();
+    }
+
+    void HandleFocusTransition()
+    {
+        float targetZ = isFocusing ? focusedZOffset : zOffset;
+        float targetY = isFocusing ? focusedYOffset : yOffset;
+        float targetFOV = isFocusing ? focusedFOV : normalFOV;
+
+        currentZOffset = Mathf.Lerp(currentZOffset, targetZ, focusTransitionSpeed * Time.deltaTime);
+        currentYOffset = Mathf.Lerp(currentYOffset, targetY, focusTransitionSpeed * Time.deltaTime);
+
+        if (cam != null)
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, focusTransitionSpeed * Time.deltaTime);
     }
 
     void HandleCameraCollision()
     {
-        // Take the base position where you put the camera and add your extra offsets to it
-        Vector3 targetOffset = new Vector3(0f, yOffset, -zOffset);
+        Vector3 targetOffset = new Vector3(0f, currentYOffset, -currentZOffset);
         Vector3 desiredLocalPos = baseLocalPosition + targetOffset;
 
-        // Work out where that position is in WORLD space, since Physics casts need world coordinates
-        Vector3 pivotWorldPos = playerBody.TransformPoint(baseLocalPosition + new Vector3(0f, yOffset, 0f));
+        Vector3 pivotWorldPos = playerBody.TransformPoint(baseLocalPosition + new Vector3(0f, currentYOffset, 0f));
         Vector3 desiredWorldPos = playerBody.TransformPoint(desiredLocalPos);
 
         Vector3 direction = desiredWorldPos - pivotWorldPos;
         float distance = direction.magnitude;
-
         float finalDistance = distance;
 
         if (distance > 0.001f)
@@ -68,13 +93,10 @@ public class PlayerCamera : MonoBehaviour
             RaycastHit hit;
             if (Physics.SphereCast(pivotWorldPos, collisionRadius, direction.normalized, out hit, distance, obstacleMask))
             {
-                // Something is in the way — pull the camera in to just before the hit point
-                finalDistance = hit.distance - collisionBuffer;
-                finalDistance = Mathf.Max(finalDistance, 0f); // never go negative/behind the pivot
+                finalDistance = Mathf.Max(hit.distance - collisionBuffer, 0f);
             }
         }
 
-        // Convert the (possibly shortened) distance back into a local position along the same direction
         Vector3 finalWorldPos = pivotWorldPos + direction.normalized * finalDistance;
         transform.position = finalWorldPos;
     }
