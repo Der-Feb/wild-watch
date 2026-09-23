@@ -302,6 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4651050137903364}
   - component: {fileID: 205543178688148884}
+  - component: {fileID: 5905300958091708158}
   m_Layer: 0
   m_Name: Stone1
   m_TagString: Untagged
@@ -354,3 +355,16 @@ LODGroup:
     renderers:
     - renderer: {fileID: 23712839032468534}
   m_Enabled: 1
+--- !u!114 &5905300958091708158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970564158491392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2333fddb2a43d4995b9169da2c5fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  interactableName: Stone

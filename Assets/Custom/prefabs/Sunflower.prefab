@@ -55,5 +55,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c4a1bcc0d2dcbe3499db2f60eff9523f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 712273938531656992}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c4a1bcc0d2dcbe3499db2f60eff9523f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4171223759412445417}
   m_SourcePrefab: {fileID: 100100000, guid: c4a1bcc0d2dcbe3499db2f60eff9523f, type: 3}
+--- !u!1 &5499762887172653228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: c4a1bcc0d2dcbe3499db2f60eff9523f, type: 3}
+  m_PrefabInstance: {fileID: 5499762887172556300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &712273938531656992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499762887172653228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2333fddb2a43d4995b9169da2c5fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  interactableName: Sunflower
+--- !u!64 &4171223759412445417
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499762887172653228}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c4a1bcc0d2dcbe3499db2f60eff9523f, type: 3}

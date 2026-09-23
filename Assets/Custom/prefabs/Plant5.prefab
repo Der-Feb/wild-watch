@@ -55,5 +55,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: db55fe2c4aef2744baea55a654b94016, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8330225941042077320}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: db55fe2c4aef2744baea55a654b94016, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4418967296076059554}
   m_SourcePrefab: {fileID: 100100000, guid: db55fe2c4aef2744baea55a654b94016, type: 3}
+--- !u!1 &2631127626581351435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: db55fe2c4aef2744baea55a654b94016, type: 3}
+  m_PrefabInstance: {fileID: 2631127626581318315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8330225941042077320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631127626581351435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2333fddb2a43d4995b9169da2c5fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  interactableName: Flower
+--- !u!64 &-4418967296076059554
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631127626581351435}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: db55fe2c4aef2744baea55a654b94016, type: 3}
