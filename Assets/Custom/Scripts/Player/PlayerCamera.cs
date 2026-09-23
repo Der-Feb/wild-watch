@@ -19,6 +19,11 @@ public class PlayerCamera : MonoBehaviour
     public float normalFOV = 60f;
     public float focusedFOV = 40f;
 
+    [Header("Scroll Zoom (while focusing)")]
+    public float maxZoomFOV = 15f;       // lowest FOV = most zoomed in
+    public float zoomScrollSpeed = 5f;   // how fast scroll changes zoom
+    [Range(0f, 1f)] public float zoomLevel = 0f; // 0 = focusedFOV, 1 = maxZoomFOV
+
     [Header("Collision Avoidance")]
     public LayerMask obstacleMask;
     public float collisionRadius = 0.3f;
@@ -38,7 +43,6 @@ public class PlayerCamera : MonoBehaviour
 
         baseLocalPosition = transform.localPosition;
 
-        // Start at the normal third-person offset
         currentZOffset = zOffset;
         currentYOffset = yOffset;
 
@@ -59,21 +63,45 @@ public class PlayerCamera : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
+        HandleScrollZoom();
         HandleFocusTransition();
         HandleCameraCollision();
+    }
+
+    void HandleScrollZoom()
+    {
+        if (!isFocusing)
+            return; // only allow scroll-zoom while focusing
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (Mathf.Abs(scroll) > 0.0001f)
+        {
+            zoomLevel += scroll * zoomScrollSpeed;
+            zoomLevel = Mathf.Clamp01(zoomLevel);
+        }
     }
 
     void HandleFocusTransition()
     {
         float targetZ = isFocusing ? focusedZOffset : zOffset;
         float targetY = isFocusing ? focusedYOffset : yOffset;
-        float targetFOV = isFocusing ? focusedFOV : normalFOV;
+
+        // Blend between focusedFOV and maxZoomFOV based on zoomLevel while focusing
+        float focusFOVWithZoom = Mathf.Lerp(focusedFOV, maxZoomFOV, zoomLevel);
+        float targetFOV = isFocusing ? focusFOVWithZoom : normalFOV;
 
         currentZOffset = Mathf.Lerp(currentZOffset, targetZ, focusTransitionSpeed * Time.deltaTime);
         currentYOffset = Mathf.Lerp(currentYOffset, targetY, focusTransitionSpeed * Time.deltaTime);
 
         if (cam != null)
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, focusTransitionSpeed * Time.deltaTime);
+
+        // Reset zoom level once you leave focus mode, so next focus starts unzoomed
+        if (!isFocusing && zoomLevel > 0f)
+        {
+            zoomLevel = 0f;
+        }
     }
 
     void HandleCameraCollision()
