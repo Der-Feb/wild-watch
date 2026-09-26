@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Animator animator; // Drag your Animator component here in the Inspector
 
     public float speed = 12f, jumpHeight = 3f;
     public float gravity = -9.81f * 2.5f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
-    public LayerMask groundMask; // set in Inspector — tick "world" AND/OR "ground"
+    public LayerMask groundMask;
 
     float horizontalInput, verticalInput;
 
@@ -19,13 +20,21 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool jumpQueued;
 
-    // Update is called once per frame
     void Update()
     {
         MyInput();
 
         if (Input.GetKeyDown(KeyCode.Space))
             jumpQueued = true;
+
+        // Check if player is pressing any direction keys
+        bool isMoving = (horizontalInput != 0 || verticalInput != 0);
+
+        // Update the Animator boolean parameter
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", isMoving);
+        }
     }
 
     void FixedUpdate()
@@ -35,31 +44,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
 
-        //right is the red Axis, foward is the blue axis
         Vector3 move = transform.right * horizontalInput + transform.forward * verticalInput;
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * speed * Time.fixedDeltaTime); // Use Time.fixedDeltaTime in FixedUpdate
 
-        //check if the player is on the ground so they can jump
         if (jumpQueued && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); //the equation for jumping
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             jumpQueued = false;
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.fixedDeltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.fixedDeltaTime);
     }
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 }

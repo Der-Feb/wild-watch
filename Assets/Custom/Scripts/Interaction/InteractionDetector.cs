@@ -41,8 +41,11 @@ public class InteractionDetector : MonoBehaviour
             }
         }
 
+
         // Nothing valid hit — hide the text
         if (interactionText != null)
             interactionText.gameObject.SetActive(false);
+
+        
     }
 }
