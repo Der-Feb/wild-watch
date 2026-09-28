@@ -732,6 +732,8 @@ GameObject:
   - component: {fileID: 95674028643950644}
   - component: {fileID: 8645337871536406014}
   - component: {fileID: 4910037318334493945}
+  - component: {fileID: 4152455209623816770}
+  - component: {fileID: 3186591481354495536}
   m_Layer: 6
   m_Name: Rabbit Small
   m_TagString: Untagged
@@ -815,6 +817,46 @@ CapsuleCollider:
   m_Height: 0.9732806
   m_Direction: 1
   m_Center: {x: 0, y: 0.27862445, z: 0.06662254}
+--- !u!114 &4152455209623816770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588090451174212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c1ba8f1c882a545a3762f550cb4627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prey
+  species: 0
+--- !u!114 &3186591481354495536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588090451174212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794187fa3e98b93469c4ff0bf6bc71c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PreyGroupAI
+  role: 1
+  wanderRadius: 5
+  wanderCenter: {x: 0, y: 0, z: 0}
+  moveSpeed: 1.5
+  rotationSpeed: 8
+  minWaitTime: 1
+  maxWaitTime: 3
+  arriveThreshold: 0.2
+  leader: {fileID: 0}
+  followDistance: 1.2
+  followOffset: {x: 0, y: 0, z: 0}
+  followSpeed: 2
+  followRotationSpeed: 8
+  stopDistance: 0.2
+  animator: {fileID: 0}
 --- !u!1 &1593323770353162
 GameObject:
   m_ObjectHideFlags: 0
