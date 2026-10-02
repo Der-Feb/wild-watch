@@ -228,16 +228,19 @@ AnimatorStateMachine:
     m_Position: {x: 90, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8464290959000044292}
-    m_Position: {x: 690, y: 300, z: 0}
+    m_Position: {x: 560, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4421341436147006331}
-    m_Position: {x: 390, y: 340, z: 0}
+    m_Position: {x: 190, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8331989653156023008}
     m_Position: {x: 690, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -841947727946205502}
     m_Position: {x: 700, y: 210, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2758035733658453134}
+    m_Position: {x: 710, y: 280, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 6907068042316326024}
@@ -300,6 +303,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 549b576458be2c84bb31d8624f5c2cea, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-2758035733658453134
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Eat
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 56f853179a1e2c546a19c99972a61753, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

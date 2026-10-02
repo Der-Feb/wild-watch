@@ -336,8 +336,7 @@ public class PredatorAI : MonoBehaviour
             Debug.Log($"<color=red>[KILL]</color> {name} killed {target.DisplayName}!");
             Prey victim = target;
 
-            Vector3 knockDir = victim.transform.position - transform.position;
-            victim.Kill(knockDir);
+            victim.Kill(transform.position);
 
             OnKill(victim);
             killed = true;
