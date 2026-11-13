@@ -4,6 +4,7 @@ public class PlayerFocus : MonoBehaviour
 {
     public PlayerCamera playerCamera;
     public GameObject focusUI;
+    public GameObject simpleFocusUI;
     public Renderer[] bodyRenderersToHide; // assign your Cylinder's Renderer here
 
     void Update()
@@ -12,8 +13,14 @@ public class PlayerFocus : MonoBehaviour
 
         playerCamera.isFocusing = focusing;
 
-        if (focusUI != null)
+        if (simpleFocusUI != null)
+            simpleFocusUI.SetActive(focusing);
+
+        // will show on focus + gun which is focusable like sniper, ...
+        // and then we block simpleFocusUI
+        if (focusUI != null && false)
             focusUI.SetActive(focusing);
+
 
         foreach (var r in bodyRenderersToHide)
         {
