@@ -110,3 +110,9 @@ InitTestScene*.unity*
 .idea/
 .DS_Store
 **/.DS_Store
+
+# todo
+TODO.md
+
+# third party assets
+/Assets/LowPolyGunPack
