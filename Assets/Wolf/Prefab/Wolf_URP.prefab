@@ -467,6 +467,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a9979b14acae404f8d4cd863daf1b34, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4803672410739752948}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a9979b14acae404f8d4cd863daf1b34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6838818779485971514}
   m_SourcePrefab: {fileID: 100100000, guid: 2a9979b14acae404f8d4cd863daf1b34, type: 3}
 --- !u!1 &8867960657160430145 stripped
 GameObject:
@@ -509,10 +512,10 @@ Animator:
   m_Controller: {fileID: 9100000, guid: fa20fe8a8b29bfe4f98456d6de1bbcc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -581,6 +584,7 @@ MonoBehaviour:
   restAfterKill: 2.5
   noPreyRecheckInterval: 2
   speedDampTime: 0.15
+  patrolSpeed: 2
   debugLogs: 1
   debugLogInterval: 3
   animator: {fileID: 7996408572775879113}
@@ -588,3 +592,19 @@ MonoBehaviour:
   chaseSpeed: 6
   strayBonus: 0.5
   leaderPenalty: 1.5
+--- !u!114 &-6838818779485971514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867960657160430145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6dac0fc83bf1c4a974d5bcb2551851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorDebugger
+  animator: {fileID: 7996408572775879113}
+  agent: {fileID: -2861922289362529378}
+  speedParam: speed
+  logEveryFrame: 1

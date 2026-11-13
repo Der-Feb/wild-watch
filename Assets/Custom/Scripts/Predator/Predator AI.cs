@@ -32,6 +32,7 @@ public class PredatorAI : MonoBehaviour
 
     [Header("Animation Smoothing")]
     public float speedDampTime = 0.15f;
+    public float patrolSpeed = 1.2f; 
 
     [Header("Debug")]
     public bool debugLogs = true;
@@ -68,6 +69,7 @@ public class PredatorAI : MonoBehaviour
         agent.stoppingDistance = attackRange * 0.5f;
         agent.autoBraking = false;
         agent.acceleration = Mathf.Max(agent.acceleration, 20f);
+        agent.speed = patrolSpeed;
     }
 
     protected virtual void Start()
@@ -309,6 +311,8 @@ public class PredatorAI : MonoBehaviour
     {
         if (target == null) return;
         if (target.Hunter == this) target.Hunter = null;
+        agent.speed = patrolSpeed;
+        
         target = null;
         isApproaching = false;
         agent.obstacleAvoidanceType = defaultAvoidance;

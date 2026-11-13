@@ -15,22 +15,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: EyeGlass
-    second: {fileID: 2100000, guid: 65e433432ad6b8742a1f4a9f0e84071d, type: 2}
+    second: {fileID: 2100000, guid: 2cc90a78a63b6494bb565d9632aa8005, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fur_2
-    second: {fileID: 2100000, guid: ba0bc912addff5a42b6c5b282afd0cfa, type: 2}
+    second: {fileID: 2100000, guid: f678cff398c76154f8f16573b50ba4e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hair
-    second: {fileID: 2100000, guid: 13dba4dc157eeb54f97e984dc3cb2add, type: 2}
+    second: {fileID: 2100000, guid: 966d277fa1edc40459b07d4e4469ba19, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wolf
-    second: {fileID: 2100000, guid: 8a97de759a77c7247980d66682d18c19, type: 2}
+    second: {fileID: 2100000, guid: 87ff771d6c64ea44b94ce8325d0e2f3e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +45,83 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'AttackL' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine5' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jaw' has translation
+      animation that will be discarded.\n\t'LegFront1.L' has translation animation
+      that will be discarded.\n\t'LegFront1.R' has translation animation that will
+      be discarded.\n\t'Spine1' has translation animation that will be discarded.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'LegBack1.L'
+      has translation animation that will be discarded.\n\t'LegBack1.R' has translation
+      animation that will be discarded.\n\nClip 'AttackR' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine5' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jaw' has translation
+      animation that will be discarded.\n\t'LegFront1.L' has translation animation
+      that will be discarded.\n\t'LegFront1.R' has translation animation that will
+      be discarded.\n\t'Spine1' has translation animation that will be discarded.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'LegBack1.L'
+      has translation animation that will be discarded.\n\t'LegBack1.R' has translation
+      animation that will be discarded.\n\nClip 'dead' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine5' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jaw' has translation
+      animation that will be discarded.\n\t'Spine1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\nClip 'GetHit_1' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine5' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'jaw' has
+      translation animation that will be discarded.\n\nClip 'GetHit_2' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine5' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'jaw' has
+      translation animation that will be discarded.\n\nClip 'Idle_New' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine5' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'jaw' has
+      translation animation that will be discarded.\n\t'Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'Jump_New'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine5'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Spine1'
+      has translation animation that will be discarded.\n\t'Spine1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'LegBack1.R'
+      has translation animation that will be discarded.\n\nClip 'Running_New' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Spine5' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'jaw'
+      has translation animation that will be discarded.\n\t'LegFront1.L' has translation
+      animation that will be discarded.\n\t'LegFront1.R' has translation animation
+      that will be discarded.\n\t'Spine1' has translation animation that will be
+      discarded.\n\t'Spine1' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'LegBack1.L' has translation animation that will
+      be discarded.\n\t'LegBack1.R' has translation animation that will be discarded.\n\nClip
+      'sitingIdle._New' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine5'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jaw'
+      has translation animation that will be discarded.\n\t'Spine1' has translation
+      animation that will be discarded.\n\nClip 'Walking' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine4' has translation animation that
+      will be discarded.\n\t'Spine5' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'jaw' has translation animation that will
+      be discarded.\n\t'LegFront1.L' has translation animation that will be discarded.\n\t'LegFront1.R'
+      has translation animation that will be discarded.\n\t'LegBack1.L' has translation
+      animation that will be discarded.\n\t'LegBack1.R' has translation animation
+      that will be discarded.\n\nClip 'WolfHowl_New' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Spine5' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'jaw' has translation
+      animation that will be discarded.\n\nClip 'sits down._New' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine5' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'jaw' has
+      translation animation that will be discarded.\n\t'Spine1' has translation animation
+      that will be discarded.\n\t'Spine1' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'LegBack1.L' has translation
+      animation that will be discarded.\n\t'LegBack1.R' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -73,8 +149,8 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -276,8 +352,8 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -461,7 +537,175 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
+    human:
+    - boneName: Spine2
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegBack1.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegBack1.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegBack2.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegBack2.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BackFoot1.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BackFoot1.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine4
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegFront1.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegFront1.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegFront2.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LegFront2.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FrontFoot1.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FrontFoot1.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BackFoot2.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BackFoot2.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Eye.L
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Eye.R
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jaw
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: Wolf(Clone)
       parentName: 
