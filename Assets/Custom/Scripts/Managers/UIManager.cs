@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject mapPanel;          // optional: leave empty until the map exists
 
+    [Header("HUD")]
+    public CanvasGroup hud;              // parent of the always-on HUD; hidden while a screen is open
+
     [Header("Keys")]
     public KeyCode menuKey = KeyCode.Escape;
     public KeyCode inventoryKey = KeyCode.I;
@@ -84,6 +87,13 @@ public class UIManager : MonoBehaviour
         if (mapPanel != null) mapPanel.SetActive(next == UIState.Map);
 
         bool playing = next == UIState.Playing;
+
+        // Hide the HUD behind screens. A Canvas Group only fades it, so the HUD scripts keep running.
+        if (hud != null)
+        {
+            hud.alpha = playing ? 1f : 0f;
+            hud.blocksRaycasts = playing;
+        }
 
         Time.timeScale = playing ? 1f : 0f;
         Cursor.lockState = playing ? CursorLockMode.Locked : CursorLockMode.None;
