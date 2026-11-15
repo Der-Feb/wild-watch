@@ -11,8 +11,10 @@ public class InventorySlotUI : MonoBehaviour
     public Image iconImage;              // optional
     public Button button;                // the row itself; found automatically if left empty
     public GameObject equippedMarker;    // optional: shown while this item is equipped
+    public Button dropButton;            // optional: a small "Drop" button inside the row (NOT the row's own button)
 
-    public void Set(ItemData item, int count, bool equipped, Action<ItemData> onClick)
+    // onDrop is optional so the existing InventoryUI call keeps compiling.
+    public void Set(ItemData item, int count, bool equipped, Action<ItemData> onClick, Action<ItemData> onDrop = null)
     {
         if (nameText == null)
             Debug.LogWarning("InventorySlotUI: Name Text is not assigned on the prefab.", this);
@@ -25,14 +27,25 @@ public class InventorySlotUI : MonoBehaviour
             iconImage.enabled = item.icon != null;
         }
 
+        // Ammo is never "equipped", so it never shows the marker.
         if (equippedMarker != null)
-            equippedMarker.SetActive(equipped);
+            equippedMarker.SetActive(equipped && !item.isAmmo);
 
         if (button == null) button = GetComponent<Button>();
         if (button != null)
         {
             button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => onClick?.Invoke(item));
+            // Ammo rows ignore clicks: they can't be made the active item.
+            if (!item.isAmmo)
+                button.onClick.AddListener(() => onClick?.Invoke(item));
+        }
+
+        if (dropButton != null)
+        {
+            dropButton.onClick.RemoveAllListeners();
+            dropButton.gameObject.SetActive(onDrop != null);
+            if (onDrop != null)
+                dropButton.onClick.AddListener(() => onDrop(item));
         }
     }
 }

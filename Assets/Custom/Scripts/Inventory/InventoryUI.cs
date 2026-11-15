@@ -63,7 +63,9 @@ public class InventoryUI : MonoBehaviour
         {
             InventorySlotUI slot = Instantiate(slotPrefab, content);
             bool equipped = equipment != null && equipment.Equipped == item;
-            slot.Set(item, counts[item], equipped, OnSlotClicked);
+
+            // Last argument: the Drop button on the row calls InventoryManager.DropOne.
+            slot.Set(item, counts[item], equipped, OnSlotClicked, inventory.DropOne);
         }
 
         if (emptyText != null)

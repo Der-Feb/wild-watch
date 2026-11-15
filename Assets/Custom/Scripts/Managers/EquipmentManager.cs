@@ -45,7 +45,12 @@ public class EquipmentManager : MonoBehaviour
 
     public void Equip(ItemData item)
     {
-        if (item == null || Count(item) == 0) return;   // cannot equip what you do not have
+        if (item == null) return;
+
+        // Ammo can be carried and counted, but never made the active item.
+        if (!item.CanEquip) return;
+
+        if (Count(item) == 0) return;   // cannot equip what you do not have
 
         Equipped = item;
         Debug.Log($"Equipped {item.itemName} (x{Count(item)})");
