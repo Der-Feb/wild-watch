@@ -106,7 +106,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ss]ceneDependencyCache*
 
 # IDEs and OS files
-.vscode/
 .idea/
 .DS_Store
 **/.DS_Store
@@ -116,3 +115,5 @@ TODO.md
 
 # third party assets
 /Assets/LowPolyGunPack
+config.bat
+node_modules
