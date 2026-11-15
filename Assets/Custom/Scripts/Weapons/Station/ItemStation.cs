@@ -28,12 +28,42 @@ public class ItemStation : MonoBehaviour
     [Header("Input")]
     public KeyCode takeKey = KeyCode.E;
 
+    [Header("Dropped stations")]
+    public bool destroyWhenEmpty;        // Setup() turns this on; leave OFF for the hand-placed stations
+    public float dropVisualScale = 1f;   // multiplies the item's worldPrefab scale
+
     int collidersInside;             // the player may have several colliders
     bool PlayerInside => collidersInside > 0;
 
     Vector3 visualStartLocalPos;
     Camera cam;
     TMP_Text label;
+
+    // Called right after Instantiate (before Start) by InventoryManager.Drop.
+    public void Setup(ItemData newItem, int newStock)
+    {
+        item = newItem;
+        stock = Mathf.Max(0, newStock);
+        destroyWhenEmpty = true;
+
+        if (visual != null && item != null && item.worldPrefab != null)
+        {
+            foreach (Transform child in visual)
+                Destroy(child.gameObject);
+
+            GameObject model = Instantiate(item.worldPrefab, visual);   // keeps the prefab's own scale
+            model.transform.localPosition = Vector3.zero;
+            model.transform.localRotation = Quaternion.identity;
+            model.transform.localScale *= dropVisualScale;
+
+            // The display model must not be pickable or solid.
+            // Interactable is the base class of the pickup script, so this works whatever it is called.
+            foreach (var c in model.GetComponentsInChildren<Collider>()) Destroy(c);
+            foreach (var p in model.GetComponentsInChildren<Interactable>()) Destroy(p);
+        }
+
+        Refresh();
+    }
 
     void Start()
     {
@@ -77,7 +107,8 @@ public class ItemStation : MonoBehaviour
 
         UpdateLabelPosition();
 
-        if (PlayerInside && Input.GetKeyDown(takeKey))
+        // UIManager.IsPlaying: no taking items while the menu or inventory is open.
+        if (PlayerInside && UIManager.IsPlaying && Input.GetKeyDown(takeKey))
             TryTake();
     }
 
@@ -117,6 +148,7 @@ public class ItemStation : MonoBehaviour
         }
 
         // Spend stock only if the inventory actually accepted the item.
+        // (When it refuses, the manager raises the "Inventory full" / "Ammo full" notice.)
         if (!inventory.Add(item))
         {
             Debug.Log($"{name}: inventory full, nothing taken.");
@@ -126,6 +158,9 @@ public class ItemStation : MonoBehaviour
         stock = Mathf.Max(0, stock - 1);
         Debug.Log($"{name}: took 1 {item.itemName}, {stock} left.");
         Refresh();
+
+        if (stock <= 0 && destroyWhenEmpty)
+            Destroy(gameObject);   // only dropped stations; OnDestroy removes the label
     }
 
     public void Restock(int amount)
